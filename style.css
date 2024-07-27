@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav img {
+    width: 100px;
+}
+.nav-items{
+    display: flex;
+    padding: 10px 40PX;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+.nav-items ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 50px;
+    font-weight: bold;
+    cursor: pointer;
+    color: whitesmoke;
+}
+.nav-items ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color: whitesmoke;
+}
+.nav-items ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: rgb(250, 213, 241);
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-items ul li:hover::after {
+    width: 100%;
+}
+.viewall {
+    padding: 10px 20px;
+    background-color: rgb(243, 9, 165);
+    color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+}
+.cta1:hover {
+    background-color: red;
+}
+.cta2 {
+    padding: 10px 40px;
+    background-color: red;
+    color: #0a0202;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+.cta2:hover {
+    background-color: black;
+    color: white;
+}
+nav {
+    display: flex;
+    padding: 0px 40PX;
+    justify-content: space-between;
+    align-items: center;
+}
+    .nav-links ul li {
+        display: block;
+        list-style: none;
+        padding: 8px 12px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .nav-links {
+        position: absolute;
+        background: whitesmoke;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: -250px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa {
+        display: block;
+        color: black;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul {
+        padding: 30px;
+    }
+    .nav-links ul li a {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        color: black;
+    }
+    .nav-links ul li::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background: black;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+    .nav-links ul li:hover::after {
+        width: 100%;
+    }
+.search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+    border: 1px solid black;
+    padding: 0px 10px;   
+}
+.nav-side{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/*----------- Athletes ---------*/
+
+.body1{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(170, 170, 170);
+}
+.container{
+    width: 98%;
+    height: 90vh;
+    margin: auto;
+}
+.container .image{
+    display: none;
+}
+.container .image img{
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    overflow: hidden;
+}
+.container .button{
+    position: absolute;
+    top: 70%;
+    left: 50px;
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 4;
+}
+.container .button a{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    user-select: none;
+}
+.container .button .prev{
+    border-radius: 5px;
+}
+.container .button .next{
+    border-radius: 5px;
+}
+.dots{
+    text-align: center;
+    position: absolute;
+    bottom: 8px;
+    left: 49%;
+    background-color: transparent;
+    padding: 5px 10px;
+    height: 30px;
+}
+.dot{
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #bbb;
+    display: inline-block;
+    margin: 0 2px;
+}
+.active, .dot:hover{
+    background-color: red;
+}
+.deals{
+    margin: 20px;
+}
+.text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.sales-product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sales-product img{
+    width: 190px;
+    height: 60vh;
+    box-shadow: #afafaf 0 8px 8px 0;
+}
+.sport{
+    padding: 10px;
+    display: block;
+}
+.sport h1{
+    text-align: center;
+}
+.sports{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.sports img{
+    width: 300px;
+}
+.product{
+    display: block;
+}
+.order{
+    padding: 10px 60px;
+    background-color: black;
+    color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    margin-top: 6px;
+}
+.order:hover{
+    background-color: red;
+}
+.brands{
+    display: block;
+    padding: 20px;
+}
+.sales-product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.brand img{
+    width: 200px;
+    height: 200px;
+}
+.brand p{
+    text-align: center;
+    padding: 10px 0;
+}
+.swim{
+    width: 100%;
+    height: 95vh;
+    margin: auto;
+    align-items: center;
+}
+.swim img{
+    width: 90%;
+    height: 86vh;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
+    left: 4rem;
+}
+
+
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: rgb(190, 237, 243);
+}
+footer p {
+    margin: 0;
+}

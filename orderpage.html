@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    input[type=text], select, input[type=number], textarea {
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    textarea {
+        resize: vertical;
+        height: 100px;
+    }
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+    .alert {
+        display: none;
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+    }
+    .btn{
+        padding: 20px 0;
+        background-color: black;
+        color: whitesmoke;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Order Form</h2>
+    <form id="orderform">
+        <div class="alert">Your order is confirmed🎉</div>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" required>
+
+        <label for="state">State:</label>
+        <select id="state" name="state">
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Dadra and Nagar Haveli and Daman & Diu">Dadra and Nagar Haveli and Daman & Diu</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Hariyana">Hariyana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="The Government of NCT of Delhi">The Government of NCT of Delhi</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Puducherry">Puducherry</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="West Bengal">West Bengal</option>
+        </select>
+
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+
+<!-- Firebase Database SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+
+<script type="module">
+    // Import Firebase modules
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+    import { getDatabase, ref, push, set } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyANsn7WXKw03HN43n0ef4XsUL9s_LUu5s4",
+        authDomain: "website-c9786.firebaseapp.com",
+        databaseURL: "https://website-c9786-default-rtdb.firebaseio.com",
+        projectId: "website-c9786",
+        storageBucket: "website-c9786.appspot.com",
+        messagingSenderId: "401283240626",
+        appId: "1:401283240626:web:cb7af4e8d88b1141de2fab",
+        measurementId: "G-9NZG4RX6CR"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Reference to the order form in the database
+    const orderFormRef = ref(database, 'orderform');
+
+    document.getElementById("orderform").addEventListener("submit", submitForm);
+
+    function submitForm(e) {
+        e.preventDefault();
+
+        const name = getElementVal("name");
+        const contact = getElementVal("contact");
+        const state = getElementVal("state");
+        const address = getElementVal("address");
+
+        saveMessages(name, contact, state, address);
+
+        // Show alert
+        document.querySelector(".alert").style.display = "block";
+
+        // Hide alert after 3 seconds
+        setTimeout(() => {
+            document.querySelector(".alert").style.display = "none";
+        }, 3000);
+
+        // Reset the form
+        document.getElementById("orderform").reset();
+    }
+
+    function saveMessages(name, contact, state, address) {
+        const newOrderRef = push(orderFormRef);
+
+        set(newOrderRef, {
+            name: name,
+            contact: contact,
+            state: state,
+            address: address,
+        });
+    }
+
+    function getElementVal(id) {
+        return document.getElementById(id).value;
+    }
+</script>
+</body>
+</html>
