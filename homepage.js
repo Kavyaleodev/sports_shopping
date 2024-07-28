@@ -56,3 +56,9 @@ const firebaseConfig = {
         console.error('Error Signing out:', error);
     })
   })
+
+  const goHomeButton=document.getElementById('gohome');
+
+  goHomeButton.addEventListener('click',()=>{
+        window.location.href='index.html';
+  })
