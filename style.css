@@ -8,23 +8,16 @@ nav img {
     width: 100px;
 }
 .nav-items{
-    display: flex;
-    padding: 10px 40PX;
-    justify-content: space-between;
-    align-items: center;
     background-color: black;
 }
 .nav-items ul li {
     list-style: none;
-    display: inline-block;
-    padding: 8px 50px;
-    font-weight: bold;
-    cursor: pointer;
-    color: whitesmoke;
+    padding: 15px 70px;
+    display: inline-flex;
 }
 .nav-items ul li a {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     color: whitesmoke;
