@@ -299,3 +299,17 @@ footer {
 footer p {
     margin: 0;
 }
+.pauls img{
+    width: 400px;
+}
+.paul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.pauls-texts{
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+}
